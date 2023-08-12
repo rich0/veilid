@@ -4,11 +4,6 @@ MAINTAINER Richard Freeman <rich@rich0.org>
 
 LABEL org.opencontainers.image.source https://github.com/rich0/veilid
 
-ENV BACULA_VERSION 13.0.3
-
-# get your key on: https://www.bacula.org/bacula-binary-package-download/
-ENV BACULA_KEY 647031b8bc3ae
-
 ENV EMAIL rich@rich0.org
 
 ENV DEBIAN_FRONTEND=noninteractive
