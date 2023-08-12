@@ -8,6 +8,8 @@ ENV EMAIL rich@rich0.org
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+ARG VEILID_VERSION
+
 RUN apt update && apt dist-upgrade -y
 
 RUN apt install software-properties-common gpg wget -y
@@ -20,7 +22,7 @@ RUN echo "deb [arch=amd64 signed-by=/usr/share/keyrings/veilid-packages-keyring.
 
 RUN apt-get update
 
-RUN apt install veilid-server veilid-cli
+RUN apt install veilid-server=$VEILID_VERSION veilid-cli=$VEILID_VERSION
 
 RUN apt-get clean
 
