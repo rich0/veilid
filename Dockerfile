@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ubuntu:noble
 
 MAINTAINER Richard Freeman <rich@rich0.org>
 
