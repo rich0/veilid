@@ -1,10 +1,10 @@
 FROM ubuntu:noble
 
-MAINTAINER Richard Freeman <rich@rich0.org>
+LABEL org.opencontainers.image.authors="Richard Freeman <rich@rich0.org>"
 
-LABEL org.opencontainers.image.source https://github.com/rich0/veilid
+LABEL org.opencontainers.image.source=https://github.com/rich0/veilid
 
-ENV EMAIL rich@rich0.org
+ENV EMAIL=rich@rich0.org
 
 ENV DEBIAN_FRONTEND=noninteractive
 
