@@ -1,4 +1,4 @@
-FROM ubuntu:noble
+FROM ubuntu:resolute
 
 LABEL org.opencontainers.image.authors="Richard Freeman <rich@rich0.org>"
 
