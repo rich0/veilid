@@ -28,6 +28,12 @@ RUN apt-get clean
 
 COPY veilid-server.conf /etc/veilid-server/veilid-server.conf
 
+RUN groupmod -o -g 1000 veilid \
+ && usermod -o -u 1000 -g 1000 veilid \
+ && chown -R veilid:veilid /var/db/veilid-server /etc/veilid-server
+
+USER veilid
+
 EXPOSE 5959/tcp
 
 EXPOSE 5050/tcp
