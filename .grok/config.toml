@@ -1,0 +1,7 @@
+# Project-scoped Grok Build config for rich0/veilid.
+# Global MCP (mentisdb): apps/grok-build/grok-config.yaml → ~/.grok/config.toml in grok-build.
+#
+# Memory scope (enforced via .grok/rules/mentisdb.md, not this file):
+#   - Project/repo facts  → MentisDB chain "veilid" (agent: grok-build-cursor)
+#   - Global personal prefs → Grok ~/.grok/memory/MEMORY.md (optional; ~/.grok/config.toml only)
+# Note: [memory] is not loaded from project config.toml — only mcp_servers, plugins, permission.
