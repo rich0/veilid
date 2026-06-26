@@ -15,7 +15,7 @@ Docker image for [veilid-server](https://github.com/veilid/veilid). Follow these
 - Image tags: `ghcr.io/rich0/veilid:<version>` and `:latest`.
 - Exposed ports: `5959/tcp` (client), `5050/tcp` + `5050/udp`.
 - Data paths: `/var/db/veilid-server/{protected_store,table_store,block_store}`.
-- Container runs as `veilid` (UID/GID 1000) by default; data and config dirs are pre-created with correct ownership.
+- Container runs as `veilid` (UID/GID 1000) by default; the `veilid-server` package creates the system user and data dirs — the image remaps them to 1000 and chowns config.
 - Mount persistent data at `/var/db/veilid-server`; fresh volumes work without an initContainer on standalone Docker.
 
 ## MentisDB memory

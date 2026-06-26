@@ -28,13 +28,9 @@ RUN apt-get clean
 
 COPY veilid-server.conf /etc/veilid-server/veilid-server.conf
 
-RUN groupadd --gid 1000 veilid \
- && useradd --uid 1000 --gid 1000 --no-create-home --shell /usr/sbin/nologin veilid \
- && mkdir -p /var/db/veilid-server/protected_store \
-             /var/db/veilid-server/table_store \
-             /var/db/veilid-server/block_store \
- && chown -R veilid:veilid /var/db/veilid-server \
- && chown -R veilid:veilid /etc/veilid-server
+RUN groupmod -o -g 1000 veilid \
+ && usermod -o -u 1000 -g 1000 veilid \
+ && chown -R veilid:veilid /var/db/veilid-server /etc/veilid-server
 
 USER veilid
 
