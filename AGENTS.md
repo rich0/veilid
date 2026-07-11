@@ -6,13 +6,15 @@ Docker image for [veilid-server](https://github.com/veilid/veilid). Follow these
 
 - `Dockerfile` — main image (ubuntu:resolute, apt packages from packages.veilid.net)
 - `veilid-server.conf` — server config copied into the image
-- `build-push.sh` — build and push to `ghcr.io/rich0/veilid` (pins `VEILID_VERSION`)
+- `build-push.sh` — build and push to `registry.rich0.org/public/veilid` (pins `VEILID_VERSION`)
 - `nightly/` — separate nightly image build
 
 ## Docker conventions
 
 - Pin `VEILID_VERSION` in `build-push.sh` (and `nightly/build-push.sh` when applicable).
-- Image tags: `ghcr.io/rich0/veilid:<version>` and `:latest`.
+- Canonical image: `registry.rich0.org/public/veilid` (Zot public repo; anonymous pull).
+- Image tags: `registry.rich0.org/public/veilid:<version>` and `:latest` (nightly: `:nightly-<date>`, `:nightly`).
+- Publish requires `docker login registry.rich0.org` (bot user `ci-push`).
 - Exposed ports: `5959/tcp` (client), `5050/tcp` + `5050/udp`.
 - Data paths: `/var/db/veilid-server/{protected_store,table_store,block_store}`.
 - Container runs as `veilid` (UID/GID 1000) by default; the `veilid-server` package creates the system user and data dirs — the image remaps them to 1000 and chowns config.
