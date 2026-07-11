@@ -1,8 +1,8 @@
 #!/bin/bash
+set -euo pipefail
 VEILID_VERSION=0.5.5
-docker build . --pull --no-cache --build-arg VEILID_VERSION=$VEILID_VERSION --tag ghcr.io/rich0/veilid:$VEILID_VERSION --tag ghcr.io/rich0/veilid:latest && docker push ghcr.io/rich0/veilid:$VEILID_VERSION && docker push ghcr.io/rich0/veilid:latest
-#VEILID_VERSION=0.1.7
-#docker build . --pull --no-cache --build-arg VEILID_VERSION=$VEILID_VERSION --tag ghcr.io/rich0/veilid:$VEILID_VERSION && docker push ghcr.io/rich0/veilid:$VEILID_VERSION 
-
-
-
+IMAGE=registry.rich0.org/public/veilid
+docker build . --pull --no-cache --build-arg VEILID_VERSION=$VEILID_VERSION \
+  --tag "$IMAGE:$VEILID_VERSION" --tag "$IMAGE:latest"
+docker push "$IMAGE:$VEILID_VERSION"
+docker push "$IMAGE:latest"
