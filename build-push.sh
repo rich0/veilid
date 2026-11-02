@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-VEILID_VERSION=0.5.7
+VEILID_VERSION=0.5.8
 IMAGE=registry.rich0.org/public/veilid
 regctl image copy  "${IMAGE}:latest" "${IMAGE}:previous"
 docker build . --pull --no-cache --build-arg VEILID_VERSION=$VEILID_VERSION \
